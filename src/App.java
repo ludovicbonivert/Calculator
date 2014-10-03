@@ -321,6 +321,40 @@ public class App extends JFrame {
 		kopieren();
 	}
 	protected void do_button_equal_actionPerformed(ActionEvent e) {
+		berekenen();
+	}
+	
+	/***********  NEW METHODS **********/
+	protected void kopieren(){
+		if(getalField == "0"){
+			getalField = tekstField;
+			getalvak.setText(getalField);	
+			resetTekstVak();
+		}
+	}
+	protected void resetTekstVak(){
+		userInput = 0;
+		tekstField = "0";
+		tekstvak.setText("0");
+	}
+	protected void resetGetalVak(){
+		getalField = "0";
+		getalvak.setText("0");
+	}
+	private void interactieRekenmachine(){
+		if(userInput == 0 && tekstField == "0"){
+			System.out.println("Gebruiker voert een 0 in maar tekstField is al 0");
+		} else if (userInput != 0 && tekstField == "0"){
+			System.out.println("Gebruiker voert ander nummer dan 0 en dan moeten we tekstField aanpassen");
+			tekstField = Integer.toString(userInput);
+		}else {
+			System.out.println("Toevoegen van userInput in het tekstField vak");
+			tekstField += Integer.toString(userInput);
+		}
+		tekstvak.setText(tekstField);
+		uitvoeringOperatie();
+	}
+	private void berekenen(){
 		if(bewerkingsteken != ""){
 			double getal1 = Double.parseDouble(getalField);
 			double getal2 = Double.parseDouble(tekstField);
@@ -352,35 +386,12 @@ public class App extends JFrame {
 		}
 	}
 	
-	/***********  NEW METHODS **********/
-	protected void kopieren(){
-		if(getalField == "0"){
-			getalField = tekstField;
-			getalvak.setText(getalField);	
-			resetTekstVak();
+	private void uitvoeringOperatie(){
+		if(getalField != "0"){
+			System.out.println("Er is iets te bereken ! ");
+			berekenen();
+			tekstvak.setText(Integer.toString(userInput));
 		}
-	}
-	protected void resetTekstVak(){
-		userInput = 0;
-		tekstField = "0";
-		tekstvak.setText("0");
-	}
-	protected void resetGetalVak(){
-		getalField = "0";
-		getalvak.setText("0");
-	}
-	private void interactieRekenmachine(){
-		if(userInput == 0 && tekstField == "0"){
-			System.out.println("Gebruiker voert een 0 in maar tekstField is al 0");
-		} else if (userInput != 0 && tekstField == "0"){
-			System.out.println("Gebruiker voert ander nummer dan 0 en dan moeten we tekstField aanpassen");
-			tekstField = Integer.toString(userInput);
-		}else {
-			System.out.println("Toevoegen van userInput in het tekstField vak");
-			tekstField += Integer.toString(userInput);
-		}
-		tekstvak.setText(tekstField);
-		
 	}
 	
 	
