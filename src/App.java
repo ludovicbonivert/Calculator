@@ -316,31 +316,35 @@ public class App extends JFrame {
 		if(bewerkingsteken != ""){
 			double getal1 = Double.parseDouble(getalField);
 			double getal2 = Double.parseDouble(tekstField);
+			double uitkomst = 0;
 			if(bewerkingsteken == "optellen"){
-				int uitkomst = (int)getal1+(int)getal2;
+				uitkomst = (int)getal1+(int)getal2;
 				getalvak.setText(Double.toString(uitkomst));
 				resetTekstVak();
 			}
 			if(bewerkingsteken == "aftrekken"){
-				double uitkomst = getal1-getal2;
+				uitkomst = getal1-getal2;
 				getalvak.setText(Double.toString(uitkomst));
 				resetTekstVak();
 			}
 			if(bewerkingsteken == "delen"){
-				double uitkomst = getal1/getal2;
+				uitkomst = getal1/getal2;
 				getalvak.setText(Double.toString(uitkomst));
 				resetTekstVak();
 			}
 			if(bewerkingsteken == "vermenigvuldigen"){
-				double uitkomst = getal1*getal2;
+				uitkomst = getal1*getal2;
 				getalvak.setText(Double.toString(uitkomst));
 				resetTekstVak();
 			}
-			
+			getalField = String.valueOf(uitkomst);
+		}else {
+			getalvak.setText(tekstField);
+			getalField = tekstField;
 		}
 	}
 	
-	/***********  MY METHODS **********/
+	/***********  NEW METHODS **********/
 	protected void kopieren(){
 		if(getalField == "0"){
 			getalField = tekstField;
