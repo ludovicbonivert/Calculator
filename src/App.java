@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -352,7 +353,6 @@ public class App extends JFrame {
 			tekstField += Integer.toString(userInput);
 		}
 		tekstvak.setText(tekstField);
-		uitvoeringOperatie();
 	}
 	private void berekenen(){
 		if(bewerkingsteken != ""){
