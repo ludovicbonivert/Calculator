@@ -242,6 +242,11 @@ public class App extends JFrame {
 		this.contentPane.add(this.button_equal);
 		
 		this.btnCe = new JButton("CE");
+		this.btnCe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				do_btnCe_actionPerformed(e);
+			}
+		});
 		this.btnCe.setBounds(102, 428, 75, 37);
 		this.contentPane.add(this.btnCe);
 	}
@@ -291,6 +296,9 @@ public class App extends JFrame {
 		resetGetalVak();
 		bewerkingsteken = "";
 		lbl_bewerkingsteken.setText("");
+	}
+	protected void do_btnCe_actionPerformed(ActionEvent e) {
+		resetTekstVak();
 	}
 	protected void do_button_delen_actionPerformed(ActionEvent e) {
 		bewerkingsteken = "delen";
@@ -374,5 +382,6 @@ public class App extends JFrame {
 		tekstvak.setText(tekstField);
 		
 	}
+	
 	
 }
